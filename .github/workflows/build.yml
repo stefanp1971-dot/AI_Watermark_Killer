@@ -30,6 +30,13 @@ jobs:
         pip install --upgrade pip
         pip install buildozer cython virtualenv kivy pillow
 
+    - name: Generate and Patch Buildozer Configuration
+      run: |
+        rm -f buildozer.spec
+        buildozer init
+        sed -i 's/requirements = python3,kivy/requirements = python3==3.11.9,kivy==2.3.0,pillow/g' buildozer.spec
+        sed -i 's/#android.accept_sdk_license = False/android.accept_sdk_license = True/g' buildozer.spec
+
     - name: Build Android Package
       run: |
         yes | buildozer android debug
