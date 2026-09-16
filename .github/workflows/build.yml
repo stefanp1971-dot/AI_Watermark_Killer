@@ -1,0 +1,41 @@
+name: Build Android APK
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtool-bin libtool automake autoconf pkg-config git zip unzip build-essential libltdl-dev libffi-dev tar bzip2 gzip openjdk-17-jdk
+
+      - name: Install Buildozer and Cython
+        run: |
+          pip install --upgrade pip
+          pip install buildozer cython virtualenv kivy pillow
+
+      - name: Initialize Buildozer
+        run: buildozer init
+
+      - name: Configure buildozer.spec
+        run: |
+          sed -i 's/requirements = python3,kivy/requirements = python3==3.11.9,kivy==2.3.0,pillow/g' buildozer.spec
+          sed -i 's/#android.accept_sdk_license = False/android.accept_sdk_license = True/g' buildozer.spec
+
+      - name: Build Android Package
+        run: buildozer android debug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AI_Watermark_Killer_APK
+          path: bin/*.apk
