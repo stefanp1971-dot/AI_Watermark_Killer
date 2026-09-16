@@ -1,0 +1,42 @@
+{
+  "de": {
+    "title": "AI-Wasserzeichen-Killer PRO",
+    "btn_scan": "ORDNER SCANNEN",
+    "btn_clean": "AM ORIGINAL-ORT UEBERSCHREIBEN",
+    "popup_title": "Rechtlicher Haftungsausschluss",
+    "popup_btn": "Akzeptieren",
+    "popup_text": "WICHTIGER HINWEIS:\n\nDie Nutzung erfolgt auf eigene Verantwortung.\nEs werden KEINE automatischen Backups erstellt.\nBitte sichern Sie wichtige Originale manuell vor der Verarbeitung!"
+  },
+  "en": {
+    "title": "AI Watermark Killer PRO",
+    "btn_scan": "SCAN FOLDER",
+    "btn_clean": "OVERWRITE AT ORIGINAL LOCATION",
+    "popup_title": "Legal Disclaimer",
+    "popup_btn": "Accept",
+    "popup_text": "IMPORTANT NOTICE:\n\nUse this app entirely at your own risk.\nNO automatic backups are created.\nPlease back up important originals manually before processing!"
+  },
+  "es": {
+    "title": "AI Buscador de Marcas PRO",
+    "btn_scan": "ESCANEAR CARPETA",
+    "btn_clean": "SOBREESCRIBIR EN EL LUGAR ORIGINAL",
+    "popup_title": "Exencion de Responsabilidad",
+    "popup_btn": "Aceptar",
+    "popup_text": "AVISO IMPORTANTE:\n\nEl uso es bajo su propia responsabilidad.\nNO se crean copias de seguridad automaticas.\n¡Guarde los originales manualmente antes de procesar!"
+  },
+  "fr": {
+    "title": "AI Destructeur de Marques PRO",
+    "btn_scan": "SCANNER LE DOSSIER",
+    "btn_clean": "ECRASER A L'EMPLACEMENT D'ORIGINE",
+    "popup_title": "Avis de Non-Responsabilite",
+    "popup_btn": "Accepter",
+    "popup_text": "NOTE IMPORTANTE:\n\nL'utilisation est sous votre entière responsabilite.\nAUCUNE sauvegarde automatique n'est creee.\nVeuillez sauvegarder manuellement les originaux importants !"
+  },
+  "it": {
+    "title": "AI Killer di Filigrana PRO",
+    "btn_scan": "SCANSIONA CARTELLA",
+    "btn_clean": "SOVRASCRIVI NELLA POSIZIONE ORIGINALE",
+    "popup_title": "Esclusione di Responsabilita",
+    "popup_btn": "Accetta",
+    "popup_text": "AVISO IMPORTANTE:\n\nL'uso e interamente sotto la vostra responsabilita.\nNON vengono create copie di sicurezza automatiche.\nSi prega di salvare manualmente gli originali importanti!"
+  }
+}
