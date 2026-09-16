@@ -35,7 +35,7 @@ jobs:
         yes | buildozer android debug
 
     - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: AI_Watermark_Killer_APK
         path: bin/*.apk
