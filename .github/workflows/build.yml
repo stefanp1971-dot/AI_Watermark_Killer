@@ -23,6 +23,20 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython virtualenv kivy pillow
 
+      - name: Initialize Buildozer Configuration
+        run: buildozer init
+
+      - name: Modify buildozer.spec
+        run: |
+          sed -i 's/requirements = python3,kivy/requirements = python3==3.11.9,kivy==2.3.0,pillow/g' buildozer.spec
+          sed -i 's/#android.accept_sdk_license = False/android.accept_sdk_license = True/g' buildozer.spec
+
       - name: Build Android Package
         run: |
           echo "y" | buildozer android debug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AI_Watermark_Killer_APK
+          path: bin/*.apk
