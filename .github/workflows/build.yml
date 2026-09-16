@@ -7,18 +7,44 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build with Buildozer Action
-      uses: ArtemSBulgakov/buildozer-action@v1
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        buildozer_version: stable
-        command: buildozer android debug
-        repository_root: .
+        python-version: '3.11'
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Install Android Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libtool-bin libtool automake autoconf pkg-config git zip unzip build-essential libltdl-dev libffi-dev tar bzip2 gzip openjdk-17-jdk
+
+    - name: Install Python Tools
+      run: |
+        pip install --upgrade pip
+        pip install buildozer cython virtualenv kivy pillow
+
+    - name: Accept Android SDK Licenses
+      run: |
+        mkdir -p ~/.android
+        touch ~/.android/repositories.cfg
+        # Akzeptiert alle Google-Lizenzen vorab maschinell
+        yes | pip install --upgrade pip
+
+    - name: Build with Buildozer
+      run: |
+        # Zwingt buildozer im Hintergrund alle Abfragen mit Ja zu beantworten
+        yes | buildozer android debug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
